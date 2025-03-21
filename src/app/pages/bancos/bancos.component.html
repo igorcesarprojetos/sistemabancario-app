@@ -1,0 +1,68 @@
+<mat-card>
+  <mat-card-content>
+
+    <mat-form-field>
+      <input matInput name="codeBanco" placeholder="codigobanco" [(ngModel)]="bancoAdd.code">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="nameBanco" placeholder="nome" [(ngModel)]="bancoAdd.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="fullNameBanco" placeholder="nomecompleto" [(ngModel)]="bancoAdd.fullName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="ispbBanco" placeholder="nº ispb" [(ngModel)]="bancoAdd.ispb">
+    </mat-form-field>
+       
+    <button (click)="btnSave()" mat-raised-button color="primary">Salvar</button>
+    
+  </mat-card-content> 
+</mat-card>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <tr mat-header-row *matHeaderRowDef="['code','name','fullname','ispb','action']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['code','name','fullname','ispb','action']"></tr>
+
+
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> Codigo do Banco </th>
+    <td mat-cell *matCellDef="let banco"> {{banco.code}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nome do Banco </th>
+    <td mat-cell *matCellDef="let banco"> {{banco.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fullname">
+    <th mat-header-cell *matHeaderCellDef> Nome Completo do Banco</th>
+    <td mat-cell *matCellDef="let banco"> {{banco.fullName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ispb">
+    <th mat-header-cell *matHeaderCellDef> ISPB (Identificador de Sistema de Pagamentos Brasileiros) </th>
+    <td mat-cell *matCellDef="let banco"> {{banco.ispb}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef> Ações </th>
+    <td mat-cell *matCellDef="let banco">
+      <button mat-icon-button (click)="btnSearch(banco)">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-icon-button (click)="btnDeletar(banco)">
+        <mat-icon>delete</mat-icon>
+      </button>  
+    </td>
+    
+  </ng-container>
+
+
+
+
+</table>
+
+
+
+
