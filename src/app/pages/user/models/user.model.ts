@@ -1,6 +1,7 @@
 export class UserModel{
   id:number=0
-  name:string=""
-  username:string=""
+  nome:string=""
+  login:string=""
+  senha:string=""
   email:string=""    
 }
