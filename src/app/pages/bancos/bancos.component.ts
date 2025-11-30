@@ -3,9 +3,10 @@ import { BancosModel } from './models/bancos.model';
 import { BancosService } from './services/bancos.service';
 
 @Component({
-  selector: 'app-bancos',
-  templateUrl: './bancos.component.html',
-  styleUrls: ['./bancos.component.css']
+    selector: 'app-bancos',
+    templateUrl: './bancos.component.html',
+    styleUrls: ['./bancos.component.css'],
+    standalone: false
 })
 export class BancosComponent  implements OnInit , OnDestroy{
 
