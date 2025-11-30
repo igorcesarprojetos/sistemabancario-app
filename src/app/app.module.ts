@@ -21,37 +21,30 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { AuthGuard } from './shared/auth-guard.service';
 import { UserComponent } from './pages/user/user.component';
 import {MatTableModule} from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BancosComponent } from './pages/bancos/bancos.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    InfoComponent,
-    NavbarComponent,
-    FooterComponent,
-    LoginComponent,
-    UserComponent,
-    BancosComponent    
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    FormsModule,
-    MatToolbarModule,
-    MatTableModule,
-    HttpClientModule
-  ],
-  providers: [AuthGuard],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        InfoComponent,
+        NavbarComponent,
+        FooterComponent,
+        LoginComponent,
+        UserComponent,
+        BancosComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        FormsModule,
+        MatToolbarModule,
+        MatTableModule], providers: [AuthGuard, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
